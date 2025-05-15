@@ -85,12 +85,9 @@ const App = () => {
         setSignupStatus('This address is already registered');
         return;
       }
-      
-      // Send the transaction with explicit gas parameters
-      await authContract.methods.register(userHash).send({ 
-        from: account,
-        gas: 300000,
-        gasPrice: '20000000000' // 20 Gwei
+
+      await authContract.methods.register(userHash).send({
+        from: account
       });
       
       setSignupStatus('User registered successfully');
